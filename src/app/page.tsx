@@ -13,12 +13,7 @@ export default async function Home({ searchParams: { page } }: Props) {
 
   return (
     <main>
-      <div className="w-fit mx-auto my-10">
-        <Pagination
-          total={meta.pagination.pageCount}
-          page={meta.pagination.page}
-        />
-      </div>
+      <div></div>
       <div className="w-fit mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4 min-h-screen gap-16">
         {data.map((blog) => {
           return (
@@ -32,6 +27,12 @@ export default async function Home({ searchParams: { page } }: Props) {
             />
           );
         })}
+      </div>
+      <div className="w-fit mx-auto my-10">
+        <Pagination
+          total={meta.pagination.pageCount}
+          page={meta.pagination.page}
+        />
       </div>
     </main>
   );

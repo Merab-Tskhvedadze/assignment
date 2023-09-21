@@ -34,7 +34,15 @@ export function Header() {
         </div>
       ) : (
         <div className="flex gap-[20px] p-[30px]">
+          <Link
+            href="/profile"
+            className="hover:underline text-indigo-600 "
+            tabIndex={-1}
+          >
+            Profile
+          </Link>
           <button
+            tabIndex={-1}
             className="hover:underline text-indigo-600"
             onClick={() => signOut()}
           >

@@ -21,7 +21,7 @@ export default async function BlogDetails({ params: { blogId } }: Props) {
               <div className="items-center mr-3 text-sm text-gray-900">
                 <div>
                   <p className="text-xl font-bold text-gray-900">
-                    {data.attributes.username}
+                    {data?.attributes?.username}
                   </p>
                   <p className="text-base text-gray-500">
                     <time dateTime="2022-02-08" title="February 8th, 2022">
@@ -32,7 +32,7 @@ export default async function BlogDetails({ params: { blogId } }: Props) {
               </div>
             </address>
             <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">
-              {data.attributes.Title}
+              {data?.attributes?.Title}
             </h1>
           </header>
           <figure className="my-5">
@@ -44,7 +44,7 @@ export default async function BlogDetails({ params: { blogId } }: Props) {
               style={{ borderRadius: "16px" }}
             />
           </figure>
-          <p className="lead">{data.attributes.Content}</p>
+          <p className="lead">{data?.attributes?.Content}</p>
         </article>
       </div>
     </main>

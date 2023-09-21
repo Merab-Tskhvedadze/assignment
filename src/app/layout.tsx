@@ -1,10 +1,9 @@
 "use client";
 
-import { SessionProvider } from "next-auth/react";
-import { Session } from "next-auth";
-
 import type { Metadata } from "next";
 
+import { SessionProvider } from "next-auth/react";
+import { Session } from "next-auth";
 import { Header, Footer } from "@/components";
 
 import "@/styles/styles.css";

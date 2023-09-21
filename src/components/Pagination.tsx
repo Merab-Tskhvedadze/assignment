@@ -7,7 +7,7 @@ type Props = {
 
 export function Pagination({ total, page }: Props) {
   return (
-    <div className="flex items-center gap-10">
+    <div className="flex flex-col xxs:flex-row items-center gap-10">
       <Link
         href={`${page <= 1 ? "#" : `?page=${page - 1}`}`}
         className={`bg-gray-300 hover:bg-gray-400 py-1 px-3 rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-200 ${

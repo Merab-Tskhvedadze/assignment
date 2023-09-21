@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { Button } from "antd";
+import { useSession, signOut } from "next-auth/react";
 
 export function Header() {
+  const { status } = useSession();
+
   return (
     <header className="flex flex-col xs:flex-row justify-between items-center mb-8 border-b-2 px-7">
       <Link
@@ -11,22 +15,33 @@ export function Header() {
       >
         <h1>AllBlogs</h1>
       </Link>
-      <div className="flex gap-[20px] p-[30px]">
-        <Link
-          href="/authentication/login"
-          className="hover:underline text-indigo-600 "
-          tabIndex={-1}
-        >
-          Login
-        </Link>
-        <Link
-          href="/authentication/register"
-          className="hover:underline text-indigo-600 "
-          tabIndex={-1}
-        >
-          Register
-        </Link>
-      </div>
+      {status !== "authenticated" ? (
+        <div className="flex gap-[20px] p-[30px]">
+          <Link
+            href="/authentication/login"
+            className="hover:underline text-indigo-600 "
+            tabIndex={-1}
+          >
+            Login
+          </Link>
+          <Link
+            href="/authentication/register"
+            className="hover:underline text-indigo-600 "
+            tabIndex={-1}
+          >
+            Register
+          </Link>
+        </div>
+      ) : (
+        <div className="flex gap-[20px] p-[30px]">
+          <button
+            className="hover:underline text-indigo-600"
+            onClick={() => signOut()}
+          >
+            Sign out
+          </button>
+        </div>
+      )}
     </header>
   );
 }

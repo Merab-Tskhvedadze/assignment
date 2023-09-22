@@ -47,10 +47,20 @@ export function Header() {
               {session.user?.username || session.user?.name}
             </span>
 
-            {session.user?.image && (
+            {session.user?.image ? (
               <Image
                 style={{ borderRadius: "16px" }}
                 src={session.user.image}
+                alt={"user profile"}
+                width={30}
+                height={30}
+              />
+            ) : (
+              <Image
+                style={{ borderRadius: "16px" }}
+                src={
+                  "http://localhost:1337/uploads/default_avatar_08f8c78144.webp"
+                }
                 alt={"user profile"}
                 width={30}
                 height={30}

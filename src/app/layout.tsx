@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" container mx-auto">
+      <body className=" container mx-auto ">
         <SessionProvider session={session}>
           <Header />
           {children}

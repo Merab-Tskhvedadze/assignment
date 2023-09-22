@@ -1,4 +1,5 @@
 import getBlogs from "@/lib/getBlogs";
+import getFormattedDate from "@/lib/getFormattedDate";
 
 import { Card, Pagination, SearchBox } from "@/components";
 
@@ -12,7 +13,7 @@ export default async function Home({ searchParams: { page } }: Props) {
   const { data, meta } = await getBlogs(page);
 
   return (
-    <main className=" min-h-screen">
+    <main className=" min-h-screen flex flex-col justify-between">
       <SearchBox />
       <div className="w-fit mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4 gap-16">
         {data.map((blog) => {
@@ -24,6 +25,7 @@ export default async function Home({ searchParams: { page } }: Props) {
               title={blog.attributes.Title}
               summery={blog.attributes.Summary}
               username={blog.attributes.username}
+              date={blog.attributes.publishedAt}
             />
           );
         })}

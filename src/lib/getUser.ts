@@ -5,6 +5,7 @@ export default async function getUser(token: string) {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    next: { tags: ["user"], revalidate: 1 },
   });
 
   const { data }: { data: User } = await request.json();

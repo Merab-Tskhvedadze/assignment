@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import config from "@/config";
+import getFormattedDate from "@/lib/getFormattedDate";
 
 type Props = {
   imgSrc: string;
@@ -9,9 +10,10 @@ type Props = {
   summery: string;
   username: string;
   url: string | number;
+  date: string;
 };
 
-export function Card({ imgSrc, title, summery, username, url }: Props) {
+export function Card({ imgSrc, title, summery, username, date, url }: Props) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg h-fit">
       <Image
@@ -30,7 +32,10 @@ export function Card({ imgSrc, title, summery, username, url }: Props) {
       </div>
       <div className="px-6 pt-4 pb-2">
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          by: {username}
+          published at {getFormattedDate(date)}
+        </span>
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          by {username}
         </span>
       </div>
     </div>

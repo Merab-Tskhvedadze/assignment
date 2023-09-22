@@ -15,7 +15,10 @@ export function SearchBox() {
   };
 
   return (
-    <form onSubmit={submitHandler} className="max-w-[500px] mx-auto my-8">
+    <form
+      onSubmit={submitHandler}
+      className="w-full max-w-[500px] mx-auto my-8"
+    >
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only "

@@ -24,7 +24,7 @@ export default async function Search({
   const { data, meta } = await getSearchItem(searchTerm, page);
 
   return (
-    <main className=" min-h-screen">
+    <main className=" min-h-screen flex flex-col justify-between">
       <div className="flex flex-wrap gap-16 my-8 justify-center items-center">
         {data.map((blog) => {
           return (

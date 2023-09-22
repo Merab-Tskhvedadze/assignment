@@ -1,5 +1,5 @@
+import { Metadata } from "next";
 import Image from "next/image";
-
 import config from "@/config";
 import getBlog from "@/lib/getblog";
 
@@ -7,6 +7,11 @@ type Props = {
   params: {
     blogId: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: "Blog detail",
+  description: "current blogs detail page",
 };
 
 export default async function BlogDetails({ params: { blogId } }: Props) {

@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import { Card, Pagination } from "@/components";
 import getSearchItem from "@/lib/getSearchItem";
+
+export const metadata: Metadata = {
+  title: "Search results",
+  description: "search results for blogs",
+};
 
 type Props = {
   params: {

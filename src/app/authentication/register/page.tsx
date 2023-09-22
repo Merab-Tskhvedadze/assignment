@@ -1,12 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Metadata } from "next";
 
 import registerUser from "@/lib/registerUser";
 
-import Button from "../components/Button";
+import { Button } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create an account",
@@ -19,8 +18,6 @@ export default function RegisterPage() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-
-  const router = useRouter();
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,8 +32,6 @@ export default function RegisterPage() {
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
-    } else if (result.success) {
-      router.replace("/authentication/login");
     } else {
       setError(result.error);
     }

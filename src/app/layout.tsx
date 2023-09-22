@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "assignment",
 };
 
-function RootLayout({
+export default function RootLayout({
   children,
   session,
 }: {
@@ -32,5 +32,3 @@ function RootLayout({
     </html>
   );
 }
-
-export default RootLayout;

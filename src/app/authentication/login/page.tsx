@@ -2,11 +2,10 @@
 
 import { FormEvent, useState } from "react";
 import { Metadata } from "next";
-import { useRouter } from "next/navigation";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 import { FcGoogle } from "react-icons/fc";
-import Button from "../components/Button";
+import { Button } from "@/components";
 
 export const metadata: Metadata = {
   title: "Visit your account",
@@ -17,9 +16,6 @@ export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-
-  const { data: session } = useSession();
-  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,8 +31,6 @@ export default function LoginPage() {
         setError("Invalid Credentials");
         return;
       }
-
-      router.replace("/");
     } catch (error) {
       console.log(error);
     }

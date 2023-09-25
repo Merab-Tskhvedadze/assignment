@@ -7,7 +7,6 @@ type Blog = {
     isFeatured: boolean;
     Content: string;
     publishedAt: string;
-    username: string;
     Thumbnail: {
       data: {
         attributes: {
@@ -26,6 +25,14 @@ type Blog = {
         mime: string;
         url: string;
         provider_metadata: null;
+      };
+    };
+    user: {
+      data: {
+        id: number;
+        attributes: {
+          username: string;
+        };
       };
     };
   };

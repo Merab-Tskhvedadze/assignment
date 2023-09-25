@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import config from "@/config";
 import getBlog from "@/lib/getblog";
+import getFormattedDate from "@/lib/getFormattedDate";
 
 type Props = {
   params: {
@@ -26,11 +27,11 @@ export default async function BlogDetails({ params: { blogId } }: Props) {
               <div className="items-center mr-3 text-sm text-gray-900">
                 <div>
                   <p className="text-xl font-bold text-gray-900">
-                    {data?.attributes?.username}
+                    {data.attributes.user.data.attributes.username}
                   </p>
                   <p className="text-base text-gray-500">
                     <time dateTime="2022-02-08" title="February 8th, 2022">
-                      Feb. 8, 2022
+                      {getFormattedDate(data.attributes.publishedAt)}
                     </time>
                   </p>
                 </div>

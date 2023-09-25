@@ -24,7 +24,7 @@ export default async function Home({ searchParams: { page } }: Props) {
               imgSrc={blog.attributes.Thumbnail.data.attributes.url}
               title={blog.attributes.Title}
               summery={blog.attributes.Summary}
-              username={blog.attributes.username}
+              username={blog.attributes.user.data.attributes.username}
               date={blog.attributes.publishedAt}
             />
           );

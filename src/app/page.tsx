@@ -1,5 +1,4 @@
 import getBlogs from "@/lib/getBlogs";
-import getFormattedDate from "@/lib/getFormattedDate";
 
 import { Card, Pagination, SearchBox } from "@/components";
 

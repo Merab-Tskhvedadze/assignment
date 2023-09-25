@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Metadata } from "next";
 
 import registerUser from "@/lib/registerUser";
@@ -19,8 +20,14 @@ export default function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
+  const router = useRouter();
+
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
     const payload = {
       email,
@@ -29,9 +36,8 @@ export default function RegisterPage() {
     };
 
     const result = await registerUser(payload);
-
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
+    if (result.success) {
+      router.replace("/");
     } else {
       setError(result.error);
     }

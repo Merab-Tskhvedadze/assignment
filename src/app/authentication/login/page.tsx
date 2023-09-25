@@ -1,8 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Metadata } from "next";
 import { signIn } from "next-auth/react";
+import { redirect, useRouter } from "next/navigation";
+import { Metadata } from "next";
 
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components";
@@ -16,6 +17,8 @@ export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
+
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,6 +34,8 @@ export default function LoginPage() {
         setError("Invalid Credentials");
         return;
       }
+
+      router.replace("/");
     } catch (error) {
       console.log(error);
     }

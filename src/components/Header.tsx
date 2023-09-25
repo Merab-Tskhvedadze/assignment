@@ -34,7 +34,14 @@ export function Header() {
           </Link>
         </div>
       ) : (
-        <div className="flex gap-[20px] p-[30px]">
+        <div className="flex items-center gap-[20px] p-[30px]">
+          <Link
+            href="/create-blog"
+            className="hover:underline text-indigo-600 "
+            tabIndex={-1}
+          >
+            Create blog
+          </Link>
           <button
             tabIndex={-1}
             className="hover:underline text-indigo-600"
